@@ -58,7 +58,7 @@ const CreatePage = () => {
               <form onSubmit={handleSubmit}>
                 <div className="form-control mb-4">
                   <label className="label">
-                    <span className="label-text">Title</span>
+                    <span className="label-text">Title </span>
                   </label>
                   <input
                     type="text"

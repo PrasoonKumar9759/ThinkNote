@@ -9,7 +9,7 @@ function NoteCard({ note }) {
       to={`/note/${note._id}`}
       className='card bg-white/5 backdrop-blur-md
         hover:bg-white/10 hover:-translate-y-1
-        border  border-[#00FF9D]
+        border
         hover:shadow-[0_0_20px_rgba(0,255,157,0.15)]
         transition-all duration-300
         border-t-4 border-[#00FF9D]'
