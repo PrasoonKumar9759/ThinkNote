@@ -13,7 +13,7 @@ function HomePage() {
   useEffect(()=>{
     const fetchNotes=async ()=>{
       try {
-        const res=await api.get('/notes');
+        const res = await axios.get(`${import.meta.env.VITE_API_URL}/notes`);
         console.log(res.data);
         setNotes(res.data);
         setIsRateLimited(false)
