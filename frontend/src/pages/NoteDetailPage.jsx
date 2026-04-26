@@ -1,5 +1,4 @@
-import { useEffect } from "react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router";
 import api from "../lib/axios";
 import toast from "react-hot-toast";
@@ -11,7 +10,6 @@ const NoteDetailPage = () => {
   const [saving, setSaving] = useState(false);
 
   const navigate = useNavigate();
-
   const { id } = useParams();
 
   useEffect(() => {
@@ -80,41 +78,56 @@ const NoteDetailPage = () => {
               <ArrowLeftIcon className="h-5 w-5" />
               Back to Notes
             </Link>
-            <button onClick={handleDelete} className="btn btn-error btn-outline">
+
+            <button
+              onClick={handleDelete}
+              className="btn btn-error btn-outline"
+            >
               <Trash2Icon className="h-5 w-5" />
               Delete Note
             </button>
           </div>
 
-          <div className="card bg-base-100">
+          <div className="card bg-base-100 shadow-lg">
             <div className="card-body">
+              {/* Title */}
               <div className="form-control mb-4">
-                <label className="label">
+                <label className="label block">
                   <span className="label-text">Title</span>
                 </label>
                 <input
                   type="text"
                   placeholder="Note title"
-                  className="input input-bordered"
+                  className="input input-bordered w-full"
                   value={note.title}
-                  onChange={(e) => setNote({ ...note, title: e.target.value })}
+                  onChange={(e) =>
+                    setNote({ ...note, title: e.target.value })
+                  }
                 />
               </div>
 
+              {/* Content */}
               <div className="form-control mb-4">
-                <label className="label">
+                <label className="label block">
                   <span className="label-text">Content</span>
                 </label>
                 <textarea
                   placeholder="Write your note here..."
-                  className="textarea textarea-bordered h-32"
+                  className="textarea textarea-bordered h-32 w-full"
                   value={note.content}
-                  onChange={(e) => setNote({ ...note, content: e.target.value })}
+                  onChange={(e) =>
+                    setNote({ ...note, content: e.target.value })
+                  }
                 />
               </div>
 
+              {/* Save button */}
               <div className="card-actions justify-end">
-                <button className="btn btn-primary" disabled={saving} onClick={handleSave}>
+                <button
+                  className="btn btn-primary"
+                  disabled={saving}
+                  onClick={handleSave}
+                >
                   {saving ? "Saving..." : "Save Changes"}
                 </button>
               </div>
@@ -125,4 +138,5 @@ const NoteDetailPage = () => {
     </div>
   );
 };
+
 export default NoteDetailPage;
