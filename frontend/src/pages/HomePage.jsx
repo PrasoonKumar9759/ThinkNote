@@ -4,6 +4,7 @@ import RateLimitedUI from '../components/RateLimitedUI.jsx';
 import axios from 'axios'
 import toast from 'react-hot-toast';
 import NoteCard from '../components/NoteCard.jsx';
+import api from '../lib/axios.js';
 function HomePage() {
   const [isRateLimited,setIsRateLimited]=useState(true);
   const [notes,setNotes]=useState([]);
@@ -12,7 +13,7 @@ function HomePage() {
   useEffect(()=>{
     const fetchNotes=async ()=>{
       try {
-        const res=await axios.get(import.meta.env.VITE_API_URL);
+        const res=await api.get('/notes');
         console.log(res.data);
         setNotes(res.data);
         setIsRateLimited(false)
